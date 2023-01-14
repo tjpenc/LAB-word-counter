@@ -7,16 +7,21 @@ const wordCounter = (value) => {
   if (value.length >= 1) {
     // COMPLETE THE LOGIC
     // If there is at least one symbol input, go down this chain of logic
-    // Initialize number of words (if on this chain there will be at least 1)
-    // loop through each symbol that is input (value.length)
-    // set the currentValue = to the string of the current symbol - can get that by using text-string[i]
-    // if that current value is a space character, add 1 to the number of words
+    // trim whitespace off both ends of string with .trim and store trimmed value!!
+    // Initialize number of words as 1 (if on this chain there will be at least 1)
+    // loop through each character (trimmedValue.length)
+    // set the currentValue = to the string of the current symbol - can get that by using string[i]
+    // look at the next value in the string (string[i + 1])
+    // if that current value is a space character, and the next value is not a space character, add 1 to the number of words
+      // This allows there to be whitespace inside the string without counting extra words
     // Concatenate the value of numWords onto the word count output string given
     // Will break if space characters are haphazardly used
+    let trimmedValue = value.trim();
     let numWords = 1;
-    for (let i = 0 ; i < value.length ; i++) {
-      let currentValue = value[i];
-      if (currentValue === " ") {
+    for (let i = 0 ; i < trimmedValue.length ; i++) {
+      let currentValue = trimmedValue[i];
+      let nextValue = trimmedValue[i + 1];
+      if (currentValue === " " && nextValue !== " ") {
         numWords++;
       }
     }

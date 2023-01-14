@@ -10,3 +10,5 @@ DONT BE INTIMIDATED BY CODE YOU DONT UNDERSTAND!!
 textarea element is a thing
 
 margin-left/right: auto; will center things (typically)
+
+.trim will trim whitespace off of a string
