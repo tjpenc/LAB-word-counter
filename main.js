@@ -4,14 +4,28 @@ const wordCounter = (value) => {
   // Type into the input and press submit, you will see the value you entered in your console
   console.log(value);
 
-  if (value) {
-    // COMPLETE THE LOGIC 
-    wordCount.innerHTML = `Word Count: 0`; 
+  if (value.length >= 1) {
+    // COMPLETE THE LOGIC
+    // If there is at least one symbol input, go down this chain of logic
+    // Initialize number of words (if on this chain there will be at least 1)
+    // loop through each symbol that is input (value.length)
+    // set the currentValue = to the string of the current symbol - can get that by using text-string[i]
+    // if that current value is a space character, add 1 to the number of words
+    // Concatenate the value of numWords onto the word count output string given
+    // Will break if space characters are haphazardly used
+    let numWords = 1;
+    for (let i = 0 ; i < value.length ; i++) {
+      let currentValue = value[i];
+      if (currentValue === " ") {
+        numWords++;
+      }
+    }
+    wordCount.innerHTML = `Word Count: ` + numWords; 
   } else {
     // if the value is empty, set the error message value to "Please input text"
-    error.innerHTML = ""; // UPDATE THIS
-  }
-}
+    error.innerHTML = "Please input text"; // UPDATE THIS
+  };
+};
 
 // OPTIONAL CHALLENGE
 const toggleMode = (btnText) => {
