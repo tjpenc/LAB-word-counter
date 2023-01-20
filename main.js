@@ -33,13 +33,19 @@ const wordCounter = (value) => {
 };
 
 // OPTIONAL CHALLENGE
-const toggleMode = (btnText) => {
-  // complete the function
-}
 
 // ************************************************ //
 // **** DO NOT MODIFY THE CODE BELOW THIS LINE **** //
 // ************************************************ //
+
+const toggleButtonText = function() {
+  const btnText = toggleButton.innerText;
+  if (btnText === "Dark Mode") {
+    toggleButton.innerText = "Light Mode";
+  } else if (btnText === "Light Mode") {
+    toggleButton.innerText = "Dark Mode";
+  }
+}
 
 // These are query selectors. We will focus on them later in the course
 const textarea = document.querySelector("textarea");
@@ -47,6 +53,7 @@ const form = document.querySelector("form");
 const error = document.querySelector("#error");
 const wordCount = document.querySelector("#word-count");
 const toggleButton = document.querySelector("#bg-switch");
+const body =document.querySelector("body");
 
 // These are event listeners. We will focus on them later in the course
 form.addEventListener("submit", (event) => {
@@ -62,6 +69,9 @@ form.addEventListener("reset", () => {
   wordCount.innerHTML = ""; // on reset, clear the innderHTML
 });
 
-toggleButton.addEventListener("click", (event) => {
-  toggleMode(event.target.innerHTML);
+toggleButton.addEventListener("click", function() {
+  console.log(toggleButton);
+  console.log(toggleButton.classList);
+  body.classList.toggle("dark");
+  toggleButtonText();
 });
